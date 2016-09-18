@@ -14,11 +14,15 @@ public class ExampleLoader
 
     public List<String> getStrings()
     {
+        loadStringsIfNull();
+        return strings;
+    }
+
+    private synchronized void loadStringsIfNull()
+    {
         if (strings == null)
         {
             strings = loadStrings();
         }
-
-        return strings;
     }
 }
